@@ -164,3 +164,67 @@
 - Logistic Regression remains stable, still outperforms many baselines.
 
 ---
+
+## 📊 Model Evaluation Summary After Adding Fare_per_person_log
+
+### 🧪 Logistic Regression
+
+- **Validation Accuracy:** 83.2%
+- **Cross-Validation Accuracy (mean):** 82.6%
+- **Kaggle Public Score:** *(pending due to daily submission limit)*
+
+**Confusion Matrix:**
+
+| Class | Precision | Recall | F1-Score |
+|-------|-----------|--------|----------|
+| 0     | 0.85      | 0.88   | 0.87     |
+| 1     | 0.80      | 0.75   | 0.78     |
+
+✅ Stable performance, unchanged from previous results. `Fare_per_person_log` doesn’t significantly affect LR — likely due to its linear nature.
+
+---
+
+### 🌲 Random Forest
+
+- **Validation Accuracy:** 82.1%
+- **Cross-Validation Accuracy (mean):** 82.9%
+- **Kaggle Public Score:** *(pending)*
+
+**Confusion Matrix:**
+
+| Class | Precision | Recall | F1-Score |
+|-------|-----------|--------|----------|
+| 0     | 0.82      | 0.90   | 0.86     |
+| 1     | 0.81      | 0.70   | 0.75     |
+
+✅ Cross-validation improved from **82.6% → 82.9%**  
+🟡 Slight drop in validation accuracy vs previous run, but this could just be variance.
+
+---
+
+### ⚡ XGBoost
+
+- **Validation Accuracy:** 79.9%
+- **Cross-Validation Accuracy (mean):** **83.5%**
+- **Kaggle Public Score:** *(pending)*
+
+**Confusion Matrix:**
+
+| Class | Precision | Recall | F1-Score |
+|-------|-----------|--------|----------|
+| 0     | 0.81      | 0.87   | 0.84     |
+| 1     | 0.77      | 0.68   | 0.72     |
+
+📈 XGBoost's **CV accuracy increased again** → now the highest across all models at **83.5%**  
+⚠️ But validation accuracy slightly dropped — keep an eye on overfitting.
+
+---
+
+## ✅ Key Insights
+
+- `Fare_per_person_log` improved **Random Forest CV score** and **XGBoost CV score**
+- Logistic Regression remained unaffected (expected)
+- XGBoost continues to dominate on cross-validation, but hasn’t yet reflected that in public Kaggle scores
+- Once your Kaggle submission resets, re-submit to measure generalization!
+
+---
