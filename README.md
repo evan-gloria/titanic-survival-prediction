@@ -22,6 +22,77 @@ This project applies supervised machine learning techniques to predict passenger
 - `models/` - Trained model files
 - `README.md` - Project overview and results
 
+## 🔧 Environment Setup / Installation Guide
+
+Follow the steps below to set up your development environment.
+
+### 1. Install Homebrew 
+
+#### For macOS
+
+Run the following command in the terminal:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Once installed, add Homebrew to your shell profile (if not already added):
+
+```bash
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+#### For Windows
+Homebrew is not supported natively on Windows, but works in WSL. 
+
+You can also skip Homebrew and install Python directly using the official installer if you’re not using WSL.
+
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Once installed, add Homebrew to your shell profile (if not already added):
+
+```bash
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+```
+
+#### For Linux / Debian / Ubuntu
+
+Run the following command in the terminal:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Once installed, add Homebrew to your shell profile (if not already added):
+
+```bash
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+```
+
+### 2. Install Python
+
+```bash
+brew install python
+```
+
+### 3. Install CMake, a prerequisite for XGBoost
+
+```bash
+brew install cmake
+```
+
+### 4. Install XGBoost and all other required packages
+
+```bash
+pip install -r requirements.txt
+```
+
 ## 📈 Results
 (You will fill this later after modeling — e.g., accuracy, ROC-AUC score)
 
