@@ -94,7 +94,7 @@ pip install -r requirements.txt
 ```
 
 ## 📈 Results
-(You will fill this later after modeling — e.g., accuracy, ROC-AUC score)
+- Historical Results are tracked against Insight.md file
 
 ## 📚 Acknowledgments
 - Dataset from [Kaggle Titanic Competition](https://www.kaggle.com/competitions/titanic/overview)
