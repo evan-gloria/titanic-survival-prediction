@@ -108,3 +108,59 @@
 - **XGBoost** shows the highest CV accuracy, but may need tuning to avoid overfitting.
 
 ---
+
+## 🔍 Model Evaluation Summary After Adding `SoloTraveller` Feature
+
+### 🧪 Logistic Regression
+
+- **Validation Accuracy:** 83.2%
+- **Cross-Validation Accuracy (mean):** 82.6%
+- **Kaggle Public Score:** 0.77511 *(no change)*
+
+**Confusion Matrix:**
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 0 (Died)     | 0.85      | 0.88   | 0.87     | 110     |
+| 1 (Survived) | 0.80      | 0.75   | 0.78     | 69      |
+
+---
+
+### 🌲 Random Forest
+
+- **Validation Accuracy:** 82.7%
+- **Cross-Validation Accuracy (mean):** 82.6%
+- **Kaggle Public Score:** **0.78468** 🔼 *(Best so far)*
+
+**Confusion Matrix:**
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 0 (Died)     | 0.84      | 0.88   | 0.86     | 110     |
+| 1 (Survived) | 0.80      | 0.74   | 0.77     | 69      |
+
+---
+
+### ⚡ XGBoost
+
+- **Validation Accuracy:** 81.6%
+- **Cross-Validation Accuracy (mean):** **83.95%**
+- **Kaggle Public Score:** 0.77033 *(unchanged)*
+
+**Confusion Matrix:**
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 0 (Died)     | 0.83      | 0.88   | 0.85     | 110     |
+| 1 (Survived) | 0.79      | 0.71   | 0.75     | 69      |
+
+---
+
+### ✅ Key Insights
+
+- `SoloTraveller` offers **moderate improvement**, especially in Random Forest.
+- **Random Forest** is now your **best-performing model on Kaggle**: `0.78468`
+- **XGBoost** remains strong on cross-validation but still slightly underperforms on Kaggle test set.
+- Logistic Regression remains stable, still outperforms many baselines.
+
+---
