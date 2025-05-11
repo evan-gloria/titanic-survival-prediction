@@ -382,3 +382,67 @@ The ensemble used **soft voting**, which averages predicted probabilities to mak
 - Logistic Regression remains promising for its generalization potential and simplicity.
 
 ---
+
+## 🧪 Logistic Regression (After Feature Pruning)
+
+After analyzing Mutual Information and category sparsity, we removed the following low-impact or noisy features:
+
+Dropped columns:
+- Title_Rare
+- Embarked_Q
+- Deck_G, Deck_F, Deck_C
+- Pclass_Title_3_Master
+- Pclass_Title_3_Mrs
+- Pclass_Title_1_Rare
+- Pclass_Title_2_Rare
+
+
+### 📊 Validation Performance
+- Accuracy: 83.24%
+
+Confusion Matrix:
+
+| 100 | 10 |
+| 20 | 49 |
+
+- F1 Score (Survived = 1): 0.77
+- Weighted F1 Score: 0.83
+- Cross-Validation Accuracy (mean): 82.49%
+
+### 📤 Kaggle Submission Result – Logistic Regression
+
+- **Public Score:** ✅ **0.78708**
+- **Second best score overall**, just behind Random Forest (0.78947)
+- Stronger than XGBoost and Voting Ensemble
+
+---
+
+### ✅ Interpretation
+
+
+- Model retains strong performance after feature pruning
+- Slight increase in precision for class 1 (survivors)
+- Cleaned feature space may help generalize better to test data
+- Logistic Regression with mutual info–based feature pruning **generalizes very well**
+- Removing rare or low-impact one-hot columns reduced potential overfitting
+- Confirms that **simpler models** with good feature engineering can match or exceed tuned tree-based models
+
+---
+
+# 🧠 Key Model Comparisons
+
+| Model                    | Kaggle Score | Notes                                        |
+|--------------------------|--------------|----------------------------------------------|
+| Random Forest (default + features) | **0.78947**     | Best score, strong generalizer               |
+| **Logistic Regression (pruned)** | **0.78708**     | Simplest, most interpretable, clean features |
+| Random Forest (tuned)    | 0.77272      | Overfit slightly                             |
+| Voting Ensemble          | 0.77272      | No gain from combining models                |
+| XGBoost (default)        | ~0.765–0.77  | Lower performance, needs tuning              |
+
+---
+
+## 🚀 What This Means
+
+- Logistic Regression is now a **reliable fallback model**
+- Random Forest is your **best-scoring model**, but LogReg is **lighter, faster, and robust**
+- No further feature engineering is strictly required — you’ve covered the high-value space
