@@ -334,3 +334,51 @@ Classification Report:
 - Logistic Regression, with higher CV accuracy, should be tested next for potential improvement.
 
 ---
+
+## 🤝 Voting Ensemble (Logistic Regression + Random Forest + XGBoost)
+
+To combine the strengths of different model types, we created a soft-voting ensemble using:
+
+- `LogisticRegression` (linear model with high CV accuracy)
+- `RandomForestClassifier` (robust to noise, strong baseline)
+- `XGBClassifier` (captures non-linear interactions)
+
+The ensemble used **soft voting**, which averages predicted probabilities to make the final decision.
+
+---
+
+### 🧪 Validation Performance
+
+- **Accuracy:** 81.56%
+- **Confusion Matrix:**
+
+| 97 | 13 |
+| 20 | 49 |
+
+- **Precision (Survived = 1):** 0.79  
+- **Recall (Survived = 1):** 0.71  
+- **F1 Score (Survived = 1):** 0.75  
+- **Weighted F1 Score:** 0.81  
+
+📌 Interpretation:
+- The ensemble showed **balanced performance**, particularly strong on class 0 (non-survivors), with reasonable recall for class 1.
+- It **matched the performance** of the tuned Random Forest on the validation set.
+- Shows promise in combining generalization (LogReg) and non-linear detection (RF/XGB).
+
+---
+
+### 📤 Kaggle Submission Result
+
+- **Public Score:** 🔻 **0.77272**
+- Same as the tuned Random Forest, indicating ensemble did not improve generalization over single best model.
+- May have suffered from overlapping patterns or added complexity without enough additional signal.
+
+---
+
+### ✅ Takeaways
+
+- Ensemble models can help stabilize predictions but don’t always outperform the strongest single model.
+- In this case, **default Random Forest (score: 0.78947)** still generalizes best.
+- Logistic Regression remains promising for its generalization potential and simplicity.
+
+---
