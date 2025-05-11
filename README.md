@@ -94,7 +94,7 @@ pip install -r requirements.txt
 ```
 
 ## 📈 Results
-- Historical Results are tracked against Insight.md file
+- Historical Results are tracked against [Insight.md file](Insights.md)
 
 ## 📚 Acknowledgments
 - Dataset from [Kaggle Titanic Competition](https://www.kaggle.com/competitions/titanic/overview)
