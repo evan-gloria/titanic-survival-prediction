@@ -279,3 +279,58 @@ Deck feature might have added slight variance due to sparsity
 - Random Forest remains competitive but plateauing
 
 ---
+
+## 🌲 Random Forest – Hyperparameter Tuning Results (RandomizedSearchCV)
+
+After engineering key features (e.g., Title, Fare_per_person, Pclass_Title, Deck), we performed hyperparameter tuning on the Random Forest model using `RandomizedSearchCV` to further optimize performance.
+
+---
+
+### 🔧 Best Parameters Identified
+
+```python
+{
+  'bootstrap': True,
+  'max_depth': 20,
+  'max_features': 'sqrt',
+  'min_samples_leaf': 3,
+  'min_samples_split': 8,
+  'n_estimators': 497
+}
+```
+
+Best Parameters: {'bootstrap': True, 'max_depth': 20, 'max_features': 'sqrt', 'min_samples_leaf': 3, 'min_samples_split': 8, 'n_estimators': 497}
+Accuracy: 0.8100558659217877
+Confusion Matrix:
+ [[96 14]
+ [20 49]]
+Classification Report:
+|            |   precision  |  recall | f1-score  | support |
+|----|----|----|----|----|
+|           0   |    0.83  |    0.87   |   0.85    |   110 |
+|           1   |    0.78  |    0.71   |   0.74    |    69 |
+|   |   |   |   |   |
+|    accuracy   |          |           |   0.81    |   179 |
+|   macro avg   |   0.80   |  0.79   |  0.80   |   179   |
+|weighted avg   |   0.81   |  0.81   |  0.81   |   179    |
+
+### 🧪 Validation Set Performance
+
+- Precision (Survived = 1): 0.78
+- Recall (Survived = 1): 0.71
+- F1 Score (Survived = 1): 0.74
+
+### 🧠 Interpretation
+- The tuned model performed similarly to the default model on the validation set.
+- However, the Kaggle test score decreased, suggesting possible overfitting or reduced generalization.
+- The Deck feature and other one-hot encoded variables may have introduced variance or sparsity that the tuned model became sensitive to.
+- In contrast, the default model appears to have better robustness under real test distribution conditions.
+
+### ✅ Key Takeaways
+- RandomizedSearchCV helped explore a broader range of hyperparameters.
+- Tuning did not improve generalization on the unseen Kaggle test set.
+- The default Random Forest model remains the best performer based on public leaderboard score.
+- Tuning is still valuable in more complex datasets or when default models underperform.
+- Logistic Regression, with higher CV accuracy, should be tested next for potential improvement.
+
+---
