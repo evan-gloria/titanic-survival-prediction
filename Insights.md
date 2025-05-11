@@ -220,3 +220,62 @@
 - `Pclass_Title`, `Fare_per_person_log`, and `Pclass_Fare` contributed noticeable gains
 - Logistic Regression is now your **most consistent performer** (highest validation accuracy)
 - XGBoost shows **the most potential** for tuning and boosting performance further
+
+---
+
+## 📊 Model Evaluation Summary – After Adding `Deck`
+
+### 🆕 Feature Added:
+- `Deck` (one-hot encoded from Cabin letter)
+
+---
+
+### 🧪 Logistic Regression
+
+- **Validation Accuracy:** 83.2%
+- **Cross-Validation Accuracy (mean):** ⭐ **83.17%**
+- **Confusion Matrix:**
+
+- **F1 Score (Survived):** 0.77
+
+✅ Highest validation performance across all models  
+✅ Improved recall for both classes  
+✅ Most balanced and consistent performer overall
+
+---
+
+### 🌲 Random Forest
+
+- **Validation Accuracy:** 79.3%
+- **Cross-Validation Accuracy (mean):** 82.49%
+- **Confusion Matrix:**
+
+- **F1 Score (Survived):** 0.72
+
+🟡 Slight dip in validation compared to previous run  
+✅ Still very solid generalization  
+Deck feature might have added slight variance due to sparsity
+
+---
+
+### ⚡ XGBoost
+
+- **Validation Accuracy:** 78.2%
+- **Cross-Validation Accuracy (mean):** **83.05%**
+- **Confusion Matrix:**
+
+- **F1 Score (Survived):** 0.71
+
+✅ Consistently improving CV accuracy — now **second highest overall**  
+🟡 Slight underperformance on validation (may benefit from tuning)
+
+---
+
+### 🧠 Key Insights
+
+- `Deck_Unknown` added moderate predictive power (MI: 0.050)
+- Logistic Regression continues to shine due to **strong generalization**
+- XGBoost shows potential with **non-linear signal extraction**, but may need hyperparameter tuning
+- Random Forest remains competitive but plateauing
+
+---
