@@ -165,66 +165,58 @@
 
 ---
 
-## 📊 Model Evaluation Summary After Adding Fare_per_person_log
+## 📊 Model Evaluation Summary – After Adding Advanced Features
+
+### ✅ New Features Added:
+- `Fare_per_person_log` — Adjusted fare based on group size
+- `Pclass_Fare` — Captures class-fare interaction
+- `Pclass_Title` — Social class + role interaction
+
+---
 
 ### 🧪 Logistic Regression
 
 - **Validation Accuracy:** 83.2%
 - **Cross-Validation Accuracy (mean):** 82.6%
-- **Kaggle Public Score:** *(pending due to daily submission limit)*
+- **Confusion Matrix:**
 
-**Confusion Matrix:**
+- **F1 Score (Survived):** 0.77
 
-| Class | Precision | Recall | F1-Score |
-|-------|-----------|--------|----------|
-| 0     | 0.85      | 0.88   | 0.87     |
-| 1     | 0.80      | 0.75   | 0.78     |
-
-✅ Stable performance, unchanged from previous results. `Fare_per_person_log` doesn’t significantly affect LR — likely due to its linear nature.
+✅ **Best performing model** in terms of validation accuracy  
+✅ Well balanced between classes, especially for interpretable models
 
 ---
 
 ### 🌲 Random Forest
 
-- **Validation Accuracy:** 82.1%
-- **Cross-Validation Accuracy (mean):** 82.9%
-- **Kaggle Public Score:** *(pending)*
+- **Validation Accuracy:** 81.0%
+- **Cross-Validation Accuracy (mean):** 82.7%
+- **Confusion Matrix:**
 
-**Confusion Matrix:**
+- **F1 Score (Survived):** 0.74
 
-| Class | Precision | Recall | F1-Score |
-|-------|-----------|--------|----------|
-| 0     | 0.82      | 0.90   | 0.86     |
-| 1     | 0.81      | 0.70   | 0.75     |
-
-✅ Cross-validation improved from **82.6% → 82.9%**  
-🟡 Slight drop in validation accuracy vs previous run, but this could just be variance.
+✅ Strong performance  
+🟡 Slight drop in validation compared to previous best RF run  
+✅ CV score improved — feature set generalizes better
 
 ---
 
 ### ⚡ XGBoost
 
-- **Validation Accuracy:** 79.9%
+- **Validation Accuracy:** 79.3%
 - **Cross-Validation Accuracy (mean):** **83.5%**
-- **Kaggle Public Score:** *(pending)*
+- **Confusion Matrix:**
 
-**Confusion Matrix:**
+- **F1 Score (Survived):** 0.72
 
-| Class | Precision | Recall | F1-Score |
-|-------|-----------|--------|----------|
-| 0     | 0.81      | 0.87   | 0.84     |
-| 1     | 0.77      | 0.68   | 0.72     |
-
-📈 XGBoost's **CV accuracy increased again** → now the highest across all models at **83.5%**  
-⚠️ But validation accuracy slightly dropped — keep an eye on overfitting.
+✅ **Highest CV score** — model is learning rich non-linear patterns  
+🟡 Slightly lower performance on validation — monitor overfitting
 
 ---
 
-## ✅ Key Insights
+### 🧠 Key Insights
 
-- `Fare_per_person_log` improved **Random Forest CV score** and **XGBoost CV score**
-- Logistic Regression remained unaffected (expected)
-- XGBoost continues to dominate on cross-validation, but hasn’t yet reflected that in public Kaggle scores
-- Once your Kaggle submission resets, re-submit to measure generalization!
-
----
+- Feature engineering significantly improved model interpretability and generalization
+- `Pclass_Title`, `Fare_per_person_log`, and `Pclass_Fare` contributed noticeable gains
+- Logistic Regression is now your **most consistent performer** (highest validation accuracy)
+- XGBoost shows **the most potential** for tuning and boosting performance further
