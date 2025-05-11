@@ -1,26 +1,40 @@
-# Titanic Survival Prediction Project
+# 🚢 Titanic Survival Prediction Project
 
-This project applies supervised machine learning techniques to predict passenger survival on the Titanic based on various features.
+This project applies supervised machine learning techniques to predict passenger survival on the Titanic based on a variety of passenger attributes.
 
-## 🚀 Project Goals
-- Perform exploratory data analysis (EDA)
-- Preprocess data and engineer features
-- Train and evaluate different ML models (e.g., Logistic Regression, Random Forest, XGBoost)
-- Optimize model performance
-- Share findings and business insights
+---
+
+## 🎯 Project Goals
+
+- Perform thorough Exploratory Data Analysis (EDA)
+- Preprocess and clean the dataset
+- Engineer meaningful features to boost model performance
+- Train and evaluate multiple ML models (Logistic Regression, Random Forest, XGBoost)
+- Compare model performance using cross-validation and Kaggle submissions
+- Share findings and insights through visualizations and documented conclusions
+
+---
 
 ## 🛠️ Tools & Technologies
+
 - Python
 - Pandas, NumPy, Scikit-learn
 - Matplotlib, Seaborn
+- XGBoost
 - Jupyter Notebook
 
-## 📂 Project Structure
-- `data/` - Processed dataset (only small files if needed)
-- `notebooks/` - EDA and model development
-- `scripts/` - Scripts for data preprocessing and modeling
-- `models/` - Trained model files
-- `README.md` - Project overview and results
+---
+
+## 📁 Project Structure
+
+```text
+├── data/         # Processed dataset (small files only)
+├── notebooks/    # Jupyter notebooks (EDA, modeling, experimentation)
+├── models/       # Trained model artifacts (optional)
+├── requirements.txt
+├── Insights.md   # Detailed performance evaluations and model comparisons
+└── README.md     # Project overview and setup instructions
+```
 
 ## 🔧 Environment Setup / Installation Guide
 
@@ -94,10 +108,16 @@ pip install -r requirements.txt
 ```
 
 ## 📈 Results
-- Historical Results are tracked against [Insight.md file](Insights.md)
+Final model evaluations, cross-validation scores, and Kaggle leaderboard results are documented in:
+
+➡️ [Insight.md](Insights.md)
 
 ## 📚 Acknowledgments
 - Dataset from [Kaggle Titanic Competition](https://www.kaggle.com/competitions/titanic/overview)
+
+## 🤖 AI Assistance
+
+Some parts of this project (including code structuring, statistical explanations, and documentation) were guided using ChatGPT as a learning assistant to accelerate understanding and ensure best practices. All modeling decisions, analysis, and validation were reviewed and implemented manually.
 
 ## 📝 License
 This project is licensed under the [MIT License](LICENSE).

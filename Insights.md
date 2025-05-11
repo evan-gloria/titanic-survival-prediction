@@ -1,4 +1,9 @@
-## 🔍 Model Evaluation Summary
+# 🔍 Model Evaluation Summary
+
+This project explores the Titanic dataset using iterative feature engineering, model evaluation, and Kaggle leaderboard comparison. We tested Logistic Regression, Random Forest, and XGBoost with increasing levels of complexity and selected the Random Forest model (Kaggle score: 0.78947) as the final winner based on generalization and performance. Logistic Regression came a close second (0.78708) and showed excellent simplicity and interpretability.
+
+<details> 
+<summary> <b> 🔍 Modelling with Base Features</b> </summary>
 
 ### 🧪 Logistic Regression
 
@@ -51,10 +56,12 @@
 - XGBoost had **strong cross-validation**, but slightly underperformed on Kaggle.
 - Logistic Regression was stable and balanced, but had lower overall Kaggle performance.
 
+</details>
+
 ---
 
-
-## 🔍 Model Evaluation Summary After Adding `Title` Feature
+<details>
+<summary> <b> 🔍 Model Evaluation Summary After Adding `Title` Feature </b></summary>
 
 ### 🧪 Logistic Regression
 
@@ -107,9 +114,12 @@
 - **Random Forest** currently performs best **overall** (highest Kaggle score).
 - **XGBoost** shows the highest CV accuracy, but may need tuning to avoid overfitting.
 
+</details>
+
 ---
 
-## 🔍 Model Evaluation Summary After Adding `SoloTraveller` Feature
+<details>
+<summary> <b> 🔍 Model Evaluation Summary After Adding `SoloTraveller` Feature </b></summary>
 
 ### 🧪 Logistic Regression
 
@@ -163,9 +173,12 @@
 - **XGBoost** remains strong on cross-validation but still slightly underperforms on Kaggle test set.
 - Logistic Regression remains stable, still outperforms many baselines.
 
+</details>
+
 ---
 
-## 📊 Model Evaluation Summary – After Adding Advanced Features
+<details>
+<summary> <b> 🔍 Model Evaluation Summary – After Adding Advanced Features </b></summary>
 
 ### ✅ New Features Added:
 - `Fare_per_person_log` — Adjusted fare based on group size
@@ -221,9 +234,12 @@
 - Logistic Regression is now your **most consistent performer** (highest validation accuracy)
 - XGBoost shows **the most potential** for tuning and boosting performance further
 
+</details>
+
 ---
 
-## 📊 Model Evaluation Summary – After Adding `Deck`
+<details>
+<summary> <b> 🔍 Model Evaluation Summary – After Adding `Deck` </b></summary>
 
 ### 🆕 Feature Added:
 - `Deck` (one-hot encoded from Cabin letter)
@@ -278,9 +294,12 @@ Deck feature might have added slight variance due to sparsity
 - XGBoost shows potential with **non-linear signal extraction**, but may need hyperparameter tuning
 - Random Forest remains competitive but plateauing
 
+</details>
+
 ---
 
-## 🌲 Random Forest – Hyperparameter Tuning Results (RandomizedSearchCV)
+<details>
+<summary> <b> 🌲 Random Forest – Hyperparameter Tuning Results (RandomizedSearchCV) </b></summary>
 
 After engineering key features (e.g., Title, Fare_per_person, Pclass_Title, Deck), we performed hyperparameter tuning on the Random Forest model using `RandomizedSearchCV` to further optimize performance.
 
@@ -300,11 +319,18 @@ After engineering key features (e.g., Title, Fare_per_person, Pclass_Title, Deck
 ```
 
 Best Parameters: {'bootstrap': True, 'max_depth': 20, 'max_features': 'sqrt', 'min_samples_leaf': 3, 'min_samples_split': 8, 'n_estimators': 497}
-Accuracy: 0.8100558659217877
-Confusion Matrix:
- [[96 14]
- [20 49]]
-Classification Report:
+
+**Accuracy:** 0.8100558659217877
+
+**Confusion Matrix:**
+
+|               | Predicted: 0 | Predicted: 1 |
+|---------------|--------------|--------------|
+| **Actual: 0** |     96      |     14       |
+| **Actual: 1** |      20      |     49       |
+
+**Classification Report:**
+
 |            |   precision  |  recall | f1-score  | support |
 |----|----|----|----|----|
 |           0   |    0.83  |    0.87   |   0.85    |   110 |
@@ -333,9 +359,12 @@ Classification Report:
 - Tuning is still valuable in more complex datasets or when default models underperform.
 - Logistic Regression, with higher CV accuracy, should be tested next for potential improvement.
 
+</details>
+
 ---
 
-## 🤝 Voting Ensemble (Logistic Regression + Random Forest + XGBoost)
+<details>
+<summary> <b> 🤝 Voting Ensemble (Logistic Regression + Random Forest + XGBoost) </b></summary>
 
 To combine the strengths of different model types, we created a soft-voting ensemble using:
 
@@ -349,11 +378,14 @@ The ensemble used **soft voting**, which averages predicted probabilities to mak
 
 ### 🧪 Validation Performance
 
-- **Accuracy:** 81.56%
-- **Confusion Matrix:**
+**Accuracy:** 81.56%
 
-| 97 | 13 |
-| 20 | 49 |
+**Confusion Matrix:**
+
+|               | Predicted: 0 | Predicted: 1 |
+|---------------|--------------|--------------|
+| **Actual: 0** |     97      |     13       |
+| **Actual: 1** |      20      |     49       |
 
 - **Precision (Survived = 1):** 0.79  
 - **Recall (Survived = 1):** 0.71  
@@ -381,9 +413,12 @@ The ensemble used **soft voting**, which averages predicted probabilities to mak
 - In this case, **default Random Forest (score: 0.78947)** still generalizes best.
 - Logistic Regression remains promising for its generalization potential and simplicity.
 
+</details>
+
 ---
 
-## 🧪 Logistic Regression (After Feature Pruning)
+<details>
+<summary> <b> ✂️ Logistic Regression – Feature Pruning </b></summary>
 
 After analyzing Mutual Information and category sparsity, we removed the following low-impact or noisy features:
 
@@ -398,12 +433,15 @@ Dropped columns:
 
 
 ### 📊 Validation Performance
-- Accuracy: 83.24%
 
-Confusion Matrix:
+**Accuracy: 83.24%**
 
-| 100 | 10 |
-| 20 | 49 |
+**Confusion Matrix:**
+
+|               | Predicted: 0 | Predicted: 1 |
+|---------------|--------------|--------------|
+| **Actual: 0** |     100      |     10       |
+| **Actual: 1** |      20      |     49       |
 
 - F1 Score (Survived = 1): 0.77
 - Weighted F1 Score: 0.83
@@ -427,13 +465,16 @@ Confusion Matrix:
 - Removing rare or low-impact one-hot columns reduced potential overfitting
 - Confirms that **simpler models** with good feature engineering can match or exceed tuned tree-based models
 
+</details>
+
 ---
+> 
 
 # 🧠 Key Model Comparisons
 
 | Model                    | Kaggle Score | Notes                                        |
 |--------------------------|--------------|----------------------------------------------|
-| Random Forest (default + features) | **0.78947**     | Best score, strong generalizer               |
+| **Random Forest (Base features + Title + SoloTraveller + Fare_per_person_log + Pclass_Fare + Pclass_Title)** | **0.78947**     | Best score, strong generalizer               |
 | **Logistic Regression (pruned)** | **0.78708**     | Simplest, most interpretable, clean features |
 | Random Forest (tuned)    | 0.77272      | Overfit slightly                             |
 | Voting Ensemble          | 0.77272      | No gain from combining models                |
@@ -441,7 +482,7 @@ Confusion Matrix:
 
 ---
 
-## 🚀 What This Means
+## 🚀 Takeaways
 
 - Logistic Regression is now a **reliable fallback model**
 - Random Forest is your **best-scoring model**, but LogReg is **lighter, faster, and robust**
